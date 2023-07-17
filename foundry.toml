@@ -15,6 +15,13 @@
   solc = "0.8.19"
   src = "contracts"
   test = "sol_test"
+  cache_path  = 'cache_forge'
+  verbosity=5
+
+  remappings = [
+    "@uniswap=lib",
+    "@openzeppelin=lib/openzeppelin-contracts",
+  ]
 
 [profile.lite]
   fuzz = { runs = 50 }
