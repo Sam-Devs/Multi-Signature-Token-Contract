@@ -27,7 +27,30 @@ A Foundry + Hardhat based template for developing Solidity smart contracts, with
 - [Solhint Community](https://github.com/solhint-community/solhint-community): code linter
 - [Prettier Plugin Solidity](https://github.com/prettier-solidity/prettier-plugin-solidity): code
   formatter
+## Features
+1. Multi-sig minting, transfer and burn of tokens.
+2. User management and giving them roles e.g. admin, User type A, User type B, User type C (they will each have access controls and permissions to view content)
+3. A swap for the token against USDC (only 1 pair)
 
+Implementation breakdown feature:
+
+1. Multi-sig minting, transfer, and burn of tokens:
+    - Define a token contract using the ERC-20 standard. You can use OpenZeppelin's implementation as a starting point.
+    - Implement multi-signature functionality by utilizing a modifier that requires multiple signatures to execute specific functions like minting, transferring, and burning tokens.
+    - Keep track of the authorized signers and their respective signatures in a mapping or an array.
+    - When executing a multi-signature transaction, validate the required number of signatures before performing the minting, transfer, or burn operations.
+2. User management and roles:
+    - Define a separate contract to manage user roles and permissions.
+    - Create a struct to represent user data, including their role and access controls.
+    - Maintain a mapping or array to store user information.
+    - Implement functions to add users, modify their roles, and manage their permissions.
+    - Apply access modifiers in your token contract based on user roles to restrict access to certain functions or information.
+3. Token swap against USDC:
+    - Integrate a decentralized exchange (DEX) or use an existing DEX contract to enable token-swapping functionality.
+    - Connect your token contract with the DEX contract to facilitate the swap.
+    - Define a function in your contract that allows users to swap your token for USDC.
+    - Ensure the swap function handles the necessary validations, such as verifying the user's token balance and allowing the appropriate amount for swapping.
+    - 
 ## Getting Started
 
 Click the [`Use this template`](https://github.com/ahmedali8/foundry-hardhat-template/generate)
